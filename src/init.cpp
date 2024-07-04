@@ -16,13 +16,14 @@ vc::Repository::Repository(fs::path path)
 {
     worktree = fs::canonical(path);
     dirPath = worktree / ".vc";
+    // no need to create if already created
     if (fs::exists(dirPath))
     {
         return;
     }
     try
     {
-        // create the .vc directory
+        // create the .vc directory in the specified path
         fs::create_directory(dirPath);
 
         // create subdirectories inside .vc
@@ -34,4 +35,16 @@ vc::Repository::Repository(fs::path path)
     {
         std::cerr << "Error creating directory: " << e.what() << std::endl;
     }
+}
+
+/**
+ * Return true if the project is initialized
+ * otherwise return false
+ */
+bool vc::Repository::checkVCRepo(fs::path path)
+{
+    if (!fs::exists(dirPath))
+        return false;
+
+    return true;
 }

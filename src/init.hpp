@@ -22,7 +22,11 @@ namespace vc
          */
         Repository(fs::path path);
 
-
+        /**
+         * @param path has the path of the directory structure
+         * where we check if the repo is initialized or not.
+         */
+        bool checkVCRepo(fs::path path);
     };
 } // namespace vc
 
