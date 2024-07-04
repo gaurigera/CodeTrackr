@@ -41,10 +41,23 @@ vc::Repository::Repository(fs::path path)
  * Return true if the project is initialized
  * otherwise return false
  */
-bool vc::Repository::checkVCRepo(fs::path path)
+bool vc::Repository::checkVCRepo()
 {
     if (!fs::exists(dirPath))
         return false;
 
     return true;
+}
+
+/**
+ * Start tracking of a file.
+ * The file tracking allows the VC to keep track
+ * of the changes.
+ */
+bool vc::Repository::addFileTracking(fs::path path) {
+    if(!checkVCRepo()) {
+        throw std::runtime_error("Error: Repository not initialized!");
+    }
+    
+    // todo: implement the file tracking using SHAx
 }

@@ -2,8 +2,6 @@
 #define INIT_HPP
 
 #include <iostream>
-#include <vector>
-#include <fstream>
 #include <filesystem>
 
 namespace fs = std::filesystem;
@@ -26,7 +24,12 @@ namespace vc
          * @param path has the path of the directory structure
          * where we check if the repo is initialized or not.
          */
-        bool checkVCRepo(fs::path path);
+        bool checkVCRepo();
+
+        /**
+         * @param path to the file we wish to track.
+         */
+        bool addFileTracking(fs::path path);
     };
 } // namespace vc
 
