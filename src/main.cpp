@@ -6,9 +6,6 @@ int main(int argc, char const *argv[])
 {
     try
     {
-        vc::Diff diff("/home/gauri/Documents/projects/CodeTrackr/src/commit.cpp", "/home/gauri/Documents/projects/CodeTrackr/src/tree.cpp");
-
-        diff.getDiff();
     }
     catch (const std::exception &e)
     {
