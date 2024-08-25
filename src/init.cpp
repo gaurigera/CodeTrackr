@@ -31,11 +31,12 @@ vc::Repository::Repository(fs::path path)
 
         // create files
         std::ofstream outFile(dirPath / "ref");  // ref will store the reference of the latest commit
-        std::ofstream outFile(dirPath / "desc"); // desc will store the description of the project (can be configured).
+        std::ofstream outFile1(dirPath / "desc"); // desc will store the description of the project (can be configured).
 
         outFile << "Repository initialized for " << worktree.filename().string();
 
         outFile.close();
+        outFile1.close();
 
         std::cout << "Initialized repositories" << std::endl;
     }
@@ -66,4 +67,6 @@ bool vc::Repository::addFileTracking(fs::path path)
 {
     if (!checkVCRepo())
         throw std::runtime_error("Error: Repository not initialized!");
+    
+    return false; //to change
 }

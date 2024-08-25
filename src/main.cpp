@@ -1,12 +1,14 @@
-#include "init.hpp"
+#include "diff.hpp"
+
 #include <iostream>
 
 int main(int argc, char const *argv[])
 {
     try
     {
-        fs::path repoPath = "/home/gauri/Documents/projects/CodeTrackr/include";
-        vc::Repository repo(repoPath);
+        vc::Diff diff("/home/gauri/Documents/projects/CodeTrackr/src/commit.cpp", "/home/gauri/Documents/projects/CodeTrackr/src/tree.cpp");
+
+        diff.getDiff();
     }
     catch (const std::exception &e)
     {

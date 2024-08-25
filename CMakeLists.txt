@@ -9,6 +9,8 @@ set(SOURCES
     src/main.cpp
     src/init.cpp
     src/init.hpp
+    src/diff.hpp
+    src/diff.cpp
 )
 
 add_executable(trackr ${SOURCES})

@@ -4,5 +4,4 @@ using namespace vc;
 
 CommitObj::CommitObj()
 {
-
 }
