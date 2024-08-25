@@ -17,8 +17,8 @@ std::string vc::hashFile(const fs::path &path)
     oss << file.rdbuf();
     std::string content = oss.str();
 
-    // performing hashing using SHA256
-    unsigned char hash[SHA256_DIGEST_LENGTH];
+    // performing hashing using SHA1
+    unsigned char hash[SHA_DIGEST_LENGTH];
     SHA256_CTX sha256;
     SHA256_Init(&sha256);
     SHA256_Update(&sha256, content.c_str(), content.size());
@@ -26,8 +26,8 @@ std::string vc::hashFile(const fs::path &path)
 
     std::stringstream strs;
 
-    // loop runs 31 times
-    for (int i = 0; i < SHA256_DIGEST_LENGTH; i++)
+    // loop runs 20 times
+    for (int i = 0; i < SHA_DIGEST_LENGTH; i++)
         strs << std::hex << std::setw(2) << std::setfill('0') << (int)hash[i];
 
     return strs.str();

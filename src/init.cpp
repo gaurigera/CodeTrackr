@@ -15,7 +15,7 @@ namespace fs = std::filesystem;
 vc::Repository::Repository(fs::path path)
 {
     worktree = fs::canonical(path);
-    dirPath = worktree / ".vc";
+    dirPath = worktree / ".trackr";
     // no need to create if already created
     if (fs::exists(dirPath))
     {
@@ -28,6 +28,14 @@ vc::Repository::Repository(fs::path path)
 
         // create subdirectories inside .vc
         fs::create_directories(dirPath / "objects");
+
+        // create files
+        std::ofstream outFile(dirPath / "ref");  // ref will store the reference of the latest commit
+        std::ofstream outFile(dirPath / "desc"); // desc will store the description of the project (can be configured).
+
+        outFile << "Repository initialized for " << worktree.filename().string();
+
+        outFile.close();
 
         std::cout << "Initialized repositories" << std::endl;
     }
@@ -54,10 +62,8 @@ bool vc::Repository::checkVCRepo()
  * The file tracking allows the VC to keep track
  * of the changes.
  */
-bool vc::Repository::addFileTracking(fs::path path) {
-    if(!checkVCRepo()) {
+bool vc::Repository::addFileTracking(fs::path path)
+{
+    if (!checkVCRepo())
         throw std::runtime_error("Error: Repository not initialized!");
-    }
-    
-    // todo: implement the file tracking using SHAx
 }

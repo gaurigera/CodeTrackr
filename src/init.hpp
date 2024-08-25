@@ -13,6 +13,7 @@ namespace vc
     public:
         fs::path worktree;
         fs::path dirPath;
+        fs::path objectsPath;
 
         /**
          * @param path has the path of the directory structure
@@ -31,6 +32,6 @@ namespace vc
          */
         bool addFileTracking(fs::path path);
     };
-} // namespace vc
+} 
 
 #endif

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(CPP_VCS)
+project(trackr)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
@@ -11,8 +11,8 @@ set(SOURCES
     src/init.hpp
 )
 
-add_executable(cpp_vcs ${SOURCES})
+add_executable(trackr ${SOURCES})
 
 # Find and include libraries
 # find_package(filesystem)
-target_link_libraries(cpp_vcs)
+target_link_libraries(trackr)
